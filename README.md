@@ -6,3 +6,5 @@
 * 胜负系统 
 * 悔棋/撤销 
 * 重置棋盘
+
+<a href="http://yinsongxu.com/wzq.html">DEMO</a>
