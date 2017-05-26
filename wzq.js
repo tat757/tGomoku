@@ -11,6 +11,11 @@ var wzq = {
 			player : 0
 		}
 	},
+	start : function(){
+		wzq.init();
+		wzq.undo();
+		wzq.restart();
+	},
 	init : function(){
 		wzq.data.turn = 0;
 		wzq.data.moves = [];
@@ -21,8 +26,6 @@ var wzq = {
 		wzq.data.lastMove.position = '';
 		wzq.data.lastMove.player = 0;
 		wzq.createBoard();
-		wzq.undo();
-		wzq.restart();
 	},
 	setStyle : function(id, styles){
 		if(id.style){
@@ -279,6 +282,7 @@ var wzq = {
 	undo : function(){
 		var undo = document.getElementById('undo');
 		undo.addEventListener('click', function(e){
+			console.log(wzq.data);
 			//如果当前没有悔棋,点击悔棋将执行悔棋操作.如果当前为悔棋状态,将执行撤销操作.
 			if(wzq.data.lastMove.active && !wzq.data.win){
 				document.getElementById(wzq.data.lastMove.position).style.backgroundColor = 'orange';
@@ -315,4 +319,4 @@ var wzq = {
 	}
 };
 
-wzq.init();
+wzq.start();
